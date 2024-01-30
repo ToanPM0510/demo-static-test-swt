@@ -73,6 +73,9 @@ public class MainServlet extends HttpServlet {
         HttpSession session = request.getSession();
         DAOProducts daopro = new DAOProducts();
         DAOCategories daocat = new DAOCategories();
+        //fixed 
+        Users users = (Users).session.getAttribute("account");
+    
         //Tao service
         String service = request.getParameter("service");
         if (service == null) {
@@ -98,8 +101,16 @@ public class MainServlet extends HttpServlet {
             request.setAttribute("datacat", listcat);
             //Kiem tra quyen han, neu la admin thi sang trang admin.jsp, con lai sang index
             Users a;
-            if (session.getAttribute("account") != null) {
-                a = (Users) session.getAttribute("account");
+            //before
+            // if (session.getAttribute("account") != null) {
+            //     a = (Users) session.getAttribute("account");
+            //     if (a.getRole() == 0) {
+            //         request.getRequestDispatcher("admin.jsp").forward(request, response);
+            //         return;
+            //     }
+            // }
+               if (users != null) {
+                a = users;
                 if (a.getRole() == 0) {
                     request.getRequestDispatcher("admin.jsp").forward(request, response);
                     return;
