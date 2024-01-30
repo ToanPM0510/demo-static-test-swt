@@ -83,11 +83,16 @@ public class CartServlet extends HttpServlet {
                     if (quantity_raw != null) {
                         while (em.hasMoreElements()) {
                             String raw_id = em.nextElement().toString();
-                            if (!raw_id.equals("account")) {
-                               //remove an element
-                                if(((int)session.getAttribute(raw_id))==1)
-                                    session.removeAttribute(raw_id); 
-                            }
+                            //before
+                            // if (!raw_id.equals("account")) {
+                            //    //remove an element
+                            //     if(((int)session.getAttribute(raw_id))==1)
+                            //         session.removeAttribute(raw_id); 
+                            // }
+                            if (!raw_id.equals("account") &&((int)session.getAttribute(raw_id))==1) {
+                                //remove an element
+                                session.removeAttribute(raw_id); 
+                             }
                         }
                     } else {
                         session.removeAttribute(id); //remove an element
