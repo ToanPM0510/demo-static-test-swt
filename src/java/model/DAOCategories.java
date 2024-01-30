@@ -48,11 +48,17 @@ public class DAOCategories extends DBconnect {
                 + "  WHERE CategoryID=" + id;
         try {
             ResultSet rs = getData(sql);
+            //before
+            // if (rs.next()) {
+            //     Categories c = new Categories(rs.getInt("CategoryID"),
+            //             rs.getString("CategoryName"),
+            //             rs.getString("Description"));
+            //     return c;
+            // }
             if (rs.next()) {
-                Categories c = new Categories(rs.getInt("CategoryID"),
-                        rs.getString("CategoryName"),
-                        rs.getString("Description"));
-                return c;
+                return new Categories(rs.getInt("CategoryID"),
+                rs.getString("CategoryName"),
+                rs.getString("Description"));
             }
         } catch (SQLException e) {
 
