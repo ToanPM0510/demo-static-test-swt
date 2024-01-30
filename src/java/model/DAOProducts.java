@@ -50,7 +50,8 @@ public class DAOProducts extends DBconnect {
                 list.add(p);
             }
         } catch (SQLException e) {
-
+            //after
+            Log.error("Error executing SQL query", e);
         }
 
         return list;

@@ -195,7 +195,13 @@
             }
         </script>
         <!-- google map js -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
+        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script> -->
+        <script>
+            // Store the API key securely on the server-side
+            var apiKey = "your_secure_api_key_here";
+          </script>
+          <!-- google map js -->
+          <script src="https://maps.googleapis.com/maps/api/js?key=your_secure_api_key_here&callback=initMap"></script>
         <!-- end google map js -->
     </body>
 </html>
