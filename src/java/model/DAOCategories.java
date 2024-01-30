@@ -23,16 +23,17 @@ public class DAOCategories extends DBconnect {
                 + "      ,[CategoryName]\n"
                 + "      ,[Description]\n"
                 + "  FROM [dbo].[Categories]";
-        try {
-            PreparedStatement st = conn.prepareStatement(sql);
-            ResultSet rs = st.executeQuery();
+        try (PreparedStatement st = conn.prepareStatement(sql);
+                ResultSet rs = st.executeQuery()) {
             while (rs.next()) {
-                Categories c = new Categories(rs.getInt("CategoryID"), rs.getString("CategoryName"), rs.getString("Description"));
+                Categories c = new Categories(rs.getInt("CategoryID"), rs.getString("CategoryName"),
+                        rs.getString("Description"));
                 list.add(c);
             }
         } catch (SQLException e) {
             System.out.println(e);
         }
+           
         return list;
     }
 
