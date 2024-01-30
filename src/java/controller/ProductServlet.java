@@ -74,12 +74,21 @@ public class ProductServlet extends HttpServlet {
         }
         if (service.equals("insert")) {
             String submitinsert = request.getParameter("submitinsert");
+            //before
+            // if (submitinsert == null) {
+            //     List<Categories> list = daocat.getAll();
+            //     for (Categories i: list)
+            //     request.setAttribute("listcat", list);
+            //     request.getRequestDispatcher("insertproduct.jsp").forward(request, response);
+            // } 
             if (submitinsert == null) {
                 List<Categories> list = daocat.getAll();
-                for (Categories i: list)
-                request.setAttribute("listcat", list);
+                for (Categories i: list){
+                    request.setAttribute("listcat", list);
+                }
                 request.getRequestDispatcher("insertproduct.jsp").forward(request, response);
-            } else {
+            }
+            else {
                 int id = daopro.lastproductid()+1;
                 String name = request.getParameter("name");
                 Double price=0.0;
