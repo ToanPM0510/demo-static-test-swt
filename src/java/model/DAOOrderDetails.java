@@ -27,7 +27,7 @@ public class DAOOrderDetails extends DBconnect {
             pre.setInt(1, od.getOrder().getOrderID());
             pre.setInt(2, od.getProduct().getProductID());
             pre.setInt(3, od.getQuantity());
-            ResultSet rs = pre.executeQuery();
+            // ResultSet rs = pre.executeQuery(); remove 
 
         } catch (SQLException e) {
         }
