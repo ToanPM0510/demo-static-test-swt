@@ -10,7 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author huytu
@@ -31,7 +32,9 @@ public class DAOCategories extends DBconnect {
                 list.add(c);
             }
         } catch (SQLException e) {
-            System.out.println(e);
+            // before
+            // System.out.println(e);
+            logger.log(Level.SEVERE, "An SQL exception occured: "+ e.getMessage(),e);
         }
            
         return list;
@@ -57,4 +60,5 @@ public class DAOCategories extends DBconnect {
         
         return null;
     }
+    private static final Logger logger = Logger.getLogger(DAOCategories.class.getName());
 }
