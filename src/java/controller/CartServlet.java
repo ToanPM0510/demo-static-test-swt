@@ -89,7 +89,7 @@ public class CartServlet extends HttpServlet {
                             //     if(((int)session.getAttribute(raw_id))==1)
                             //         session.removeAttribute(raw_id); 
                             // }
-                            if (!raw_id.equals("account") &&((int)session.getAttribute(raw_id))==1) {
+                            if (!raw_id.equals("account") &&((int)session.getAttribute(raw_id)==1)) {
                                 //remove an element
                                 session.removeAttribute(raw_id); 
                              }
