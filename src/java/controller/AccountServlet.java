@@ -112,11 +112,16 @@ public class AccountServlet extends HttpServlet {
                     request.getRequestDispatcher("register.jsp").forward(request, response);
                 } else {
                     id = dao.lastuserid() + 1;
-                    String p = request.getParameter("password");
-                    String c = request.getParameter("contactname");
+                    // String p = request.getParameter("password");
+                    // String c = request.getParameter("contactname");
+                    // String phone = request.getParameter("phone");
+                    // String a = request.getParameter("address");
+                    // String b_raw = request.getParameter("birthdate");
+                    String password = request.getParameter("password");
+                    String contactname = request.getParameter("contactname");
                     String phone = request.getParameter("phone");
-                    String a = request.getParameter("address");
-                    String b_raw = request.getParameter("birthdate");
+                    String address = request.getParameter("address");
+                    String birthdate = request.getParameter("birthdate");                    
                     java.util.Date utilDate = null;
                     try {
                         utilDate = dateFormat.parse(b_raw);
